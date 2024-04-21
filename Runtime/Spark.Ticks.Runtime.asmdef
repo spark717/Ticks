@@ -1,3 +1,22 @@
 {
-	"name": "Spark.Ticks.Runtime"
+    "name": "Spark.Ticks.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "Spark.DependencyInjector.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.spark.dependency-injector",
+            "expression": "1.0.0",
+            "define": "SPARK_DI"
+        }
+    ],
+    "noEngineReferences": false
 }
