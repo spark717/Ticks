@@ -1,0 +1,18 @@
+{
+    "name": "Spark.Ticks.Editor.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1c96ee43a9a50484f928704cfb0e36ff"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
