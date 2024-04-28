@@ -6,19 +6,16 @@ namespace Spark
     public abstract class TickManagerBase<T> : ITickManager<T>
         where T : ITick
     {
-        private readonly ITickProducer _tickProducer;
         private readonly Dictionary<Type, int> _order;
         private readonly List<T> _consumersList;
         private readonly List<T> _addPendingList;
         private readonly HashSet<T> _removePendingList;
         
-        protected TickManagerBase(Type[] order, ITickProducer tickProducer)
+        protected TickManagerBase(Type[] order)
         {
             _consumersList = new();
             _addPendingList = new();
             _removePendingList = new();
-            _tickProducer = tickProducer;
-            _tickProducer.TickSignal += OnTick;
 
             _order = new(order.Length);
             for (int i = 0; i < order.Length; i++)
@@ -41,7 +38,7 @@ namespace Spark
             _removePendingList.Add(consumer);
         }
         
-        private void OnTick()
+        public void ProcessTick()
         {
             ProcessPendingItems();
             

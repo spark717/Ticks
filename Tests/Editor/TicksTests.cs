@@ -8,15 +8,14 @@ public class TicksTests
     [Test]
     public void TicksCount()
     {
-        var producer = new FakeTickProducer();
-        var manager = new FakeTickManager(new Type[] { }, producer);
+        var manager = new FakeTickManager(new Type[] { });
         var consumer = new Consumer1();
         manager.AddConsumer(consumer);
 
         var ticksCount = 3;
         for (int i = 0; i < ticksCount; i++)
         {
-            producer.Invoke();
+            manager.ProcessTick();
         }
 
         Assert.True(consumer.TicksCount == ticksCount);
@@ -25,22 +24,21 @@ public class TicksTests
     [Test]
     public void ConsumerRemove()
     {
-        var producer = new FakeTickProducer();
-        var manager = new FakeTickManager(new Type[] { }, producer);
+        var manager = new FakeTickManager(new Type[] { });
         var consumer = new Consumer1();
         manager.AddConsumer(consumer);
 
         var ticksCount = 3;
         for (int i = 0; i < ticksCount; i++)
         {
-            producer.Invoke();
+            manager.ProcessTick();
         }
 
         manager.RemoveConsumer(consumer);
 
         for (int i = 0; i < ticksCount; i++)
         {
-            producer.Invoke();
+            manager.ProcessTick();
         }
 
         Assert.True(consumer.TicksCount == ticksCount);
@@ -56,8 +54,7 @@ public class TicksTests
             typeof(Consumer3),
         };
         var intList = new List<int>();
-        var producer = new FakeTickProducer();
-        var manager = new FakeTickManager(order, producer);
+        var manager = new FakeTickManager(order);
         var consumer1 = new Consumer1();
         var consumer2 = new Consumer2();
         var consumer3 = new Consumer3();
@@ -68,7 +65,7 @@ public class TicksTests
         manager.AddConsumer(consumer2);
         manager.AddConsumer(consumer3);
 
-        producer.Invoke();
+        manager.ProcessTick();
         
         Assert.True(intList[0] == 2);
         Assert.True(intList[1] == 1);

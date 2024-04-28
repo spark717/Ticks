@@ -5,7 +5,7 @@ namespace Tests.Editor.Fakes
 {
     public class FakeTickManager : TickManagerBase<IFrameTick>
     {
-        public FakeTickManager(Type[] order, ITickProducer tickProducer) : base(order, tickProducer)
+        public FakeTickManager(Type[] order) : base(order)
         {
         }
 

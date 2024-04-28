@@ -8,7 +8,7 @@ namespace Spark
     
     public class FrameTickManager : TickManagerBase<IFrameTick>, IFrameTickManager
     {
-        public FrameTickManager(Type[] order) : base(order, FrameTickProducer.Create())
+        public FrameTickManager(Type[] order) : base(order)
         {
         }
 

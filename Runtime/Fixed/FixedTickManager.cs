@@ -8,7 +8,7 @@ namespace Spark
     
     public class FixedTickManager : TickManagerBase<IFixedTick>, IFixedTickManager
     {
-        public FixedTickManager(Type[] order) : base(order, FixedTickProducer.Create())
+        public FixedTickManager(Type[] order) : base(order)
         {
         }
 

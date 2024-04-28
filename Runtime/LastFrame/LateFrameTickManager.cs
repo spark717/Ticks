@@ -8,7 +8,7 @@ namespace Spark
     
     public class LateFrameTickManager : TickManagerBase<ILateFrameTick>, ILateFrameTickManager
     {
-        public LateFrameTickManager(Type[] order) : base(order, LateFrameTickProducer.Create())
+        public LateFrameTickManager(Type[] order) : base(order)
         {
         }
 
